@@ -5,7 +5,8 @@ RUN apt-get update && \
     mkdir /var/run/sshd && \
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config && \
-    sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
+    sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config && \
+    echo 'root:1' | chpasswd
 
 EXPOSE 22
 
